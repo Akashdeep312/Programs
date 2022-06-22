@@ -30,4 +30,42 @@ const bsHelper = (nums, target, start, end) => {
 
 }
 
-search([-1, 0, 3, 5, 9, 12], 2);
+/**
+ * Detect capital letter in a string
+ * @param {*} str 
+ * @param {*} index 
+ * @param {*} length 
+ * @returns 
+ */
+const detectFirstUpperLetter = (str, index, length) => {
+    if (index > length) {
+        return false;
+    }
+    let charVal = str.charCodeAt(index);
+    if (charVal >= 65 && charVal < 91) {
+        return true;
+    }
+    return detectFirstUpperLetter(str, index + 1, length);
+}
+const findLenth = (str) => {
+    if (str == "") return 0;
+    return 1 + findLenth(str.substring(1));
+}
+
+const bubbleSort = (arr, n) => {
+    //code here
+    if (n < 0) return
+    let index = n - 1;
+    for (let i = index - 1; i >= 0; i--) {
+        if (arr[i] > arr[index]) {
+            let temp = arr[index];
+            arr[index] = arr[i];
+            arr[i] = temp;
+        }
+    }
+    bubbleSort(arr, n - 1);
+}
+let str = "geeksforgeeks"
+
+
+console.log(findLenth(str));
